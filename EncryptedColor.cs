@@ -17,7 +17,7 @@ namespace EncryptedTypes
 
         private EncryptedColor(ref Color value)
         {
-            EncryptionKey = GetNewEncryptionKey();
+            EncryptionKey = CreateNewEncryptionKey();
             EncryptedValue = EncryptValue(value, EncryptionKey);
             initialized = 1;
         }
@@ -71,7 +71,7 @@ namespace EncryptedTypes
         /// <summary>
         /// Get a new key for encryption.
         /// </summary>
-        private static int GetNewEncryptionKey()
+        private static int CreateNewEncryptionKey()
         {
             //Get some random bytes for the key.
             int result = 0;
@@ -99,7 +99,7 @@ namespace EncryptedTypes
         {
             if (initialized == 0)
             {
-                EncryptionKey = GetNewEncryptionKey();
+                EncryptionKey = CreateNewEncryptionKey();
                 EncryptedValue = EncryptValue(Color.white, EncryptionKey);
                 initialized = 1;
 

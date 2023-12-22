@@ -67,7 +67,7 @@ namespace EncryptedTypes
         {
             //Get some random bytes for the key
             int result = 0;
-            SafeRandom.GetNew(1000, 10000, ref result);
+            Random.GetNew(1000, 10000, ref result);
             byte[] RandomData = Transforms.TransformValueArray((uint) result).ToArray();
             byte a = 33;
             for (int i = 0; i < 4; i += 2)

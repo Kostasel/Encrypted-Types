@@ -18,7 +18,7 @@ namespace EncryptedTypes
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
         private EncryptedInt(ref int value)
         {
-            EncryptionKey = NewEncryptionKey();
+            EncryptionKey = CreateNewEncryptionKey();
             EncryptedValue = EncryptValue(ref value, ref EncryptionKey);
             initialized = 1;
         }
@@ -65,7 +65,7 @@ namespace EncryptedTypes
         /// <summary>
         /// Get a new key for encryption.
         /// </summary>
-        private static int NewEncryptionKey()
+        private static int CreateNewEncryptionKey()
         {
             //Get some random bytes for the key
             int result = 0;
@@ -78,7 +78,7 @@ namespace EncryptedTypes
                 RandomData[i + 1] = (byte) (((a << 5) + a) + RandomData[i + 1]);
             }
             //Shuffle the key bytes
-            for (i = 0; i < 4; i += 2)
+            for (int i = 0; i < 4; i += 2)
             {
 
                 RandomData[i] = Transforms.Transform((byte) (RandomData[i] ^ Transforms.Transform((byte) i)));

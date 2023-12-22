@@ -14,39 +14,50 @@ namespace EncryptedTypes.Examples
     //the encrypted type.
     public class Example : MonoBehaviour
     {
-        //If you had a variable say
-        int health = 10;
+        //Other Example Variables
+        EncryptedInt other_player_health = 5;
+        int mob_health = 5;
+
+        //If you had a variable say:
+        int player_health = 10;
         //then doing
-        EncryptedInt encrypted_health = 10;
-        //and this is it.
-        //Now health is encrypted in memory inside the encrypted_health variable.
-        //All EncryptedTypes follow the same principle.  
+        EncryptedInt encrypted_player_health = 10;
+        //will encrypt the value inside the encrypted_player_health variable.
+        //Now player_health is encrypted in memory.
+        //All EncryptedTypes follow the same principle.
+
         //All EncryptedTypes support the bellow operations:
-        public Example(EncryptedInt encrypted_health)
+        /* Increment ++
+         * Decrement --
+         * Add(+ or +=)
+         * Substract(- or -=)
+         * Greater than( > ) and greater or equal than( >= )
+         * Lower that ( < ) and Lower than or equal than( <= )
+         * Equal == and not Equal !=
+         * Can use an EncryptedType variable with another with all operations as described above.
+         */
+
+        public Example()
         {
-            //Increment ++
-            encrypted_health++;
-            //Decrement --
-            encrypted_health--;
-            //Add(+ or +=)
-            encrypted_health = encrypted_health + health;
-            encrypted_health += health;
-            //Substract(- or -=)
-            encrypted_health = encrypted_health - health;
-            encrypted_health -= health;
-            //Greater than > and greater or equal >=
-            if (encrypted_health > health) { };
-            if (encrypted_health >= health) { };
-            //Can also compare with another NetworkInt variable
-            if (encrypted_health >= healh_current) { };
-            //Lower that < and Lower than or equal <=
-            if (encrypted_health < health) { };
-            if (encrypted_health <= health) { };
-            //Can also compare with another NetworkInt variable
-            if (encrypted_health <= healh_current) { };
-            //Equals == and not Equals !=
-            if (encrypted_health == health) { };
-            if (encrypted_health != health) { };
+            //Increment encrypted variable
+            encrypted_player_health++;
+            //Decrement encrypted variable
+            encrypted_player_health--;
+            //Add to encrypted variable value
+            encrypted_player_health = encrypted_player_health + 12;
+            encrypted_player_health += player_health;
+            //Substract from encrypted variable
+            encrypted_player_health = encrypted_player_health - mob_health;
+            encrypted_player_health -= mob_health;
+            //Greater than or greater or equal than from a standard type(or an encrypted variable)
+            if (encrypted_player_health > mob_health) { };
+            if (encrypted_player_health >= mob_health) { };
+            //Lower that or Lower than or equal to an encrypted variable
+            if (encrypted_player_health < other_player_health) { };
+            if (encrypted_player_health <= other_player_health) { };
+            //Equal to an encrypted variable and not Equal to an encrypted variable
+            if (encrypted_player_health == 5) { };
+            if (encrypted_player_health != other_player_health) { };
         }
     }
 }
