@@ -2,7 +2,7 @@
 //See license.txt for license details
 
 //To start using the EncryptedTypes
-//1. Add the using statement bellow to your code.
+//1. Add the using statement below to your code.
 //Using EncryptedTypes;
 using UnityEngine;
 
