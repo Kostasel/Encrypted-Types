@@ -1,2 +1,2 @@
 # Encrypted Types
-Memory Encrypted Types to protect against memory scanning programs(CheatEngine,GameGuardian,etc...)
+Memory Encrypted data types for games in unity to protect against memory scanning programs(CheatEngine,GameGuardian,etc...).
